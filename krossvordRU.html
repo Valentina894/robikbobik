@@ -7,160 +7,127 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #e6f2ff;
+      background-color: #eaf6ff;
+      text-align: center;
       padding: 20px;
     }
     h1 {
-      text-align: center;
-      color: #d40000;
+      color: #d42426;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     }
-    .container {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      flex-wrap: wrap;
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(10, 30px);
-      grid-template-rows: repeat(10, 30px);
-      gap: 1px;
-      background-color: #000;
-      padding: 2px;
-      border: 2px solid #000;
-    }
-    .cell {
+    td {
       width: 30px;
       height: 30px;
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border: 1px solid #333;
+      text-align: center;
       font-weight: bold;
       font-size: 16px;
-      position: relative;
+      background-color: #f9f9f9;
     }
-    .cell.black {
-      background-color: #000;
+    .filled {
+      background-color: #ffffff;
     }
-    .cell span.number {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      font-size: 10px;
-      color: #000;
+    .empty {
+      background-color: #ccc;
+      color: #ccc;
     }
-    .clues {
-      max-width: 300px;
+    .legend {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: left;
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
     }
-    .clues h2 {
-      color: #d40000;
+    .legend h2 {
+      color: #d42426;
     }
-    .clue {
-      margin: 8px 0;
-    }
-    .horizontal, .vertical {
-      margin-bottom: 15px;
+    .legend ul {
+      padding-left: 20px;
     }
   </style>
 </head>
 <body>
-  <h1>Новогодний кроссворд</h1>
-  <div class="container">
-    <div class="grid" id="crosswordGrid"></div>
-    <div class="clues">
-      <h2>Вопросы:</h2>
-      <div class="horizontal">
-        <h3>По горизонтали:</h3>
-        <div class="clue">1. Новогоднее дерево</div>
-        <div class="clue">3. Небесное новогоднее явление</div>
-        <div class="clue">5. Главный зимний праздник</div>
-        <div class="clue">7. Сказочный дедушка с мешком подарков</div>
-        <div class="clue">9. Зимняя обувь для катания</div>
-      </div>
-      <div class="vertical">
-        <h3>По вертикали:</h3>
-        <div class="clue">2. Символ года, например, петух</div>
-        <div class="clue">4. Сладкий новогодний гость</div>
-        <div class="clue">6. Зимняя забава на льду</div>
-        <div class="clue">8. Звук, раздающийся в полночь</div>
-        <div class="clue">10. Теплая зимняя одежда</div>
-      </div>
-    </div>
+  <h1>🎄 Новогодний кроссворд 🎄</h1>
+
+  <!-- Кроссворд 12x12 -->
+  <table>
+    <tr>
+      <td class="filled">с</td><td class="filled">н</td><td class="filled">е</td><td class="filled">г</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="filled">е</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="filled">п</td><td class="filled">о</td><td class="filled">д</td><td class="filled">а</td><td class="filled">р</td><td class="filled">о</td><td class="filled">к</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="filled">м</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="filled">ь</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="filled">я</td><td class="empty">.</td><td class="empty">.</td><td class="filled">с</td><td class="filled">н</td><td class="filled">е</td><td class="filled">г</td><td class="filled">о</td><td class="filled">в</td><td class="filled">и</td><td class="filled">к</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="filled">д</td><td class="filled">е</td><td class="filled">д</td><td class="filled">м</td><td class="filled">о</td><td class="filled">р</td><td class="filled">о</td><td class="filled">з</td><td class="empty">.</td><td class="filled">о</td><td class="empty">.</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="filled">л</td><td class="empty">.</td><td class="empty">.</td>
+    </tr>
+    <tr>
+      <td class="filled">с</td><td class="filled">н</td><td class="filled">е</td><td class="filled">г</td><td class="filled">у</td><td class="filled">р</td><td class="filled">о</td><td class="filled">ч</td><td class="filled">к</td><td class="filled">е</td><td class="filled">н</td><td class="filled">и</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="filled">и</td><td class="empty">.</td><td class="filled">к</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="filled">а</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="filled">к</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="filled">а</td>
+    </tr>
+    <tr>
+      <td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="empty">.</td><td class="filled">о</td>
+    </tr>
+  </table>
+
+  <div class="legend">
+    <h2>Слова кроссворда:</h2>
+    <ul>
+      <li><strong>Горизонтально:</strong>
+        <ul>
+          <li>1. Падает с неба зимой (4 буквы) — <em>снег</em></li>
+          <li>2. То, что дарят под ёлкой (7 букв) — <em>подарок</em></li>
+          <li>3. Близкие люди (5 букв) — <em>семья</em></li>
+          <li>4. Зимняя игрушка из снега (8 букв) — <em>снеговик</em></li>
+          <li>5. Новогодний персонаж с бородой (8 букв) — <em>дедмороз</em></li>
+          <li>6. Внучка Деда Мороза (10 букв) — <em>снегурочка</em></li>
+        </ul>
+      </li>
+      <li><strong>Вертикально:</strong>
+        <ul>
+          <li>1. Хвойное дерево под украшениями (3 буквы) — <em>ель</em></li>
+          <li>2. Животные, тянущие сани (5 букв) — <em>олени</em></li>
+          <li>3. Горячий напиток зимой (5 букв) — <em>какао</em></li>
+          <li>4. Праздничная одежда (5 букв) — <em>наряд</em></li>
+        </ul>
+      </li>
+    </ul>
   </div>
-
-  <script>
-    // Сетка 10x10, пустые ячейки — null, черные — "■"
-    const grid = Array(10).fill().map(() => Array(10).fill(null));
-
-    // Отмечаем черные клетки (■)
-    const blackCells = [
-      [0,0], [0,1], [0,2], [0,8], [0,9],
-      [1,0], [1,9],
-      [2,0], [2,9],
-      [3,0], [3,7], [3,8], [3,9],
-      [4,0], [4,1], [4,8], [4,9],
-      [5,0], [5,1], [5,8], [5,9],
-      [6,0], [6,7], [6,8], [6,9],
-      [7,0], [7,9],
-      [8,0], [8,9],
-      [9,0], [9,1], [9,2], [9,7], [9,8], [9,9]
-    ];
-
-    blackCells.forEach(([r, c]) => grid[r][c] = "■");
-
-    // Слова и их позиции
-    const words = [
-      { word: "ЁЛКА", start: [0,3], dir: "h", num: 1 },
-      { word: "САНИ", start: [1,1], dir: "v", num: 2 },
-      { word: "САЛЮТ", start: [2,3], dir: "h", num: 3 },
-      { word: "ДЕД", start: [3,1], dir: "v", num: 4 },
-      { word: "ПРАЗДНИК", start: [4,2], dir: "h", num: 5 },
-      { word: "КОНЬКИ", start: [4,8], dir: "v", num: 6 },
-      { word: "ДЕДМОРОЗ", start: [6,1], dir: "h", num: 7 },
-      { word: "БОЙ", start: [7,7], dir: "v", num: 8 },
-      { word: "КОНЬКИ", start: [8,3], dir: "h", num: 9 },
-      { word: "ШУБА", start: [5,7], dir: "v", num: 10 }
-    ];
-
-    // Заполняем сетку буквами
-    words.forEach(w => {
-      const [r, c] = w.start;
-      if (w.dir === "h") {
-        for (let i = 0; i < w.word.length; i++) {
-          grid[r][c + i] = w.word[i];
-          if (i === 0) grid[r][c + i] = { letter: w.word[i], number: w.num };
-        }
-      } else {
-        for (let i = 0; i < w.word.length; i++) {
-          grid[r + i][c] = w.word[i];
-          if (i === 0) grid[r + i][c] = { letter: w.word[i], number: w.num };
-        }
-      }
-    });
-
-    // Отрисовка сетки
-    const container = document.getElementById("crosswordGrid");
-    for (let r = 0; r < 10; r++) {
-      for (let c = 0; c < 10; c++) {
-        const cell = document.createElement("div");
-        cell.classList.add("cell");
-        if (grid[r][c] === "■") {
-          cell.classList.add("black");
-        } else if (grid[r][c] !== null) {
-          if (typeof grid[r][c] === "object") {
-            cell.textContent = grid[r][c].letter;
-            const numSpan = document.createElement("span");
-            numSpan.className = "number";
-            numSpan.textContent = grid[r][c].number;
-            cell.appendChild(numSpan);
-          } else {
-            cell.textContent = grid[r][c];
-          }
-        }
-        container.appendChild(cell);
-      }
-    }
-  </script>
 </body>
 </html>
