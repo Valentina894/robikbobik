@@ -37,68 +37,60 @@
 </h2>
   
 <h2>21 января , 2026</h2>
-  <p>Возьмём, например:</p>
-    <div class="calc">p = 7</div>
-    <div class="calc">q = 11</div>
-  </div>
+  // Основной алгоритм
+  const p = 7;
+  const q = 13;
 
-  <div class="step">
-    <h2>2. Считаем <code>n = p × q</code></h2>
-    <div class="calc">n = 7 × 11 = 77</div>
-  </div>
+  const n = p * q;
+  const phi = (p - 1) * (q - 1);
 
-  <div class="step">
-    <h2>3. Считаем функцию Эйлера <code>φ(n) = (p−1)(q−1)</code></h2>
-    <div class="calc">φ(n) = (7 − 1) × (11 − 1) = 6 × 10 = 60</div>
-  </div>
+  // Выбираем e
+  let e = 3;
+  while (e < phi) {
+    if (gcd(e, phi) === 1) break;
+    e++;
+  }
 
-  <div class="step">
-    <h2>4. Выбираем число <code>e</code></h2>
-    <p>Условия:</p>
-    <ul>
-      <li><code>1 &lt; e &lt; φ(n)</code></li>
-      <li><code>e</code> и <code>φ(n)</code> взаимно просты (НОД = 1)</li>
-    </ul>
-    <p>Попробуем <code>e = 7</code>:</p>
-    <div class="calc">НОД(7, 60) = 1 → <span class="success">✅ подходит!</span></div>
-    <p><em>(Можно было взять <code>e = 11</code>, <code>13</code>, <code>17</code> и др. — тоже подошли бы.)</em></p>
-  </div>
+  const d = modInverse(e, phi);
 
-  <div class="step">
-    <h2>5. Находим закрытый ключ <code>d</code></h2>
-    <p>Нужно найти такое число <code>d</code>, чтобы:</p>
-    <div class="calc">(e × d) mod φ(n) = 1</div>
-    <p>То есть:</p>
-    <div class="calc">(7 × d) mod 60 = 1</div>
-    <p>Решая сравнение (например, методом перебора или расширенным алгоритмом Евклида), получаем:</p>
-    <div class="calc">d = 43 → 7 × 43 = 301 → 301 mod 60 = 1 <span class="success">✅</span></div>
-  </div>
+  const m = 2; // сообщение
+  const C = modPow(m, e, n); // шифрование
+  const M = modPow(C, d, n); // расшифровка
 
-  <div class="keys">
-    <p><strong>Открытый ключ:</strong> <code>(n, e) = (77, 7)</code> → им можно зашифровать</p>
-    <p><strong>Закрытый ключ:</strong> <code>(n, d) = (77, 43)</code> → им можно расшифровать</p>
-  </div>
+  // Формируем вывод
+  let output = '';
 
-  <div class="step">
-    <h2>6. Зашифруем сообщение</h2>
-    <p>Пусть сообщение <code>m = 13</code> (например, «13» = «анализ готов»)</p>
-    <p>Условие: <code>m</code> должно быть меньше <code>n</code> → <code>13 &lt; 77</code> → <span class="success">✅</span></p>
-    <p>Формула шифрования:</p>
-    <div class="calc">C = m<sup>e</sup> mod n = 13<sup>7</sup> mod 77 = 53</div>
-    <p>→ Шифротекст <code>C = 53</code></p>
-  </div>
+  output += `<div class="step"><h2>1. Выбор простых чисел</h2>`;
+  output += `<p>p = ${p}, q = ${q}</p></div>`;
 
-  <div class="step">
-    <h2>7. Расшифруем сообщение</h2>
-    <p>Формула расшифровки:</p>
-    <div class="calc">M = C<sup>d</sup> mod n = 53<sup>43</sup> mod 77 = 13</div>
-    <p>Исходное сообщение восстановлено! <span class="success">✅</span></p>
-  </div>
+  output += `<div class="step"><h2>2. Вычисление n</h2>`;
+  output += `<p>n = p × q = ${p} × ${q} = ${n}</p></div>`;
 
-  <div class="note">
-    <strong>В реальности:</strong> число <code>n</code> состоит из <strong>600 и более десятичных цифр</strong> (около 2048 бит), что делает факторизацию практически невозможной для современных компьютеров.
-  </div>
+  output += `<div class="step"><h2>3. Вычисление φ(n)</h2>`;
+  output += `<p>φ(n) = (p−1)(q−1) = (${p}−1) × (${q}−1) = ${p - 1} × ${q - 1} = ${phi}</p></div>`;
 
+  output += `<div class="step"><h2>4. Выбор открытой экспоненты e</h2>`;
+  output += `<p>Ищем e такое, что 1 &lt; e &lt; φ(n) и НОД(e, φ(n)) = 1.</p>`;
+  output += `<p>Выбрано: e = ${e} → НОД(${e}, ${phi}) = ${gcd(e, phi)} <span class="success">✅</span></p></div>`;
+
+  output += `<div class="step"><h2>5. Вычисление закрытой экспоненты d</h2>`;
+  output += `<p>Ищем d такое, что (e × d) mod φ(n) = 1.</p>`;
+  output += `<p>d = ${d}, так как (${e} × ${d}) mod ${phi} = ${(e * d) % phi} <span class="success">✅</span></p></div>`;
+
+  output += `<div class="step"><h2>Ключи</h2>`;
+  output += `<p><strong>Открытый ключ:</strong> (n, e) = (${n}, ${e})</p>`;
+  output += `<p><strong>Закрытый ключ:</strong> (n, d) = (${n}, ${d})</p></div>`;
+
+  output += `<div class="step"><h2>Шифрование сообщения</h2>`;
+  output += `<p>Сообщение m = ${m} (должно быть &lt; n → ${m} &lt; ${n} <span class="success">✅</span>)</p>`;
+  output += `<p>C = m<sup>e</sup> mod n = ${m}<sup>${e}</sup> mod ${n} = ${C} <span class="success">✅</span></p></div>`;
+
+  output += `<div class="step"><h2>Расшифровка</h2>`;
+  output += `<p>M = C<sup>d</sup> mod n = ${C}<sup>${d}</sup> mod ${n} = ${M}</p>`;
+  output += `<p>Исходное сообщение восстановлено: <strong>${M === m ? '✅ УСПЕХ!' : '❌ ОШИБКА'}</strong></p></div>`;
+
+  document.getElementById('output').innerHTML = output;
+</script>
   <a target="_blank" href="https://icons8.com/icon/17330/christmas-tree">Новый год</a> иконка от <a target="_blank" href="https://icons8.com">Icons8</a>
 </body>
 
